@@ -5,10 +5,10 @@ export const jobs = [
     company: 'TechCorp',
     location: 'San Francisco, CA',
     salary: '$120k - $150k',
-    type: 'Full-time',
+    type: 'Full-Time',
     posted: '2d ago',
     logo: 'https://images.unsplash.com/photo-1549924231-f129b911e442?w=128&h=128&fit=crop',
-    category: 'Technology'
+    category: 'FullTime'
   },
   {
     id: 2,
@@ -16,10 +16,10 @@ export const jobs = [
     company: 'GrowthLabs',
     location: 'New York, NY',
     salary: '$90k - $120k',
-    type: 'Full-time',
+    type: 'Full-Time',
     posted: '1d ago',
     logo: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=128&h=128&fit=crop',
-    category: 'Marketing'
+    category: 'FullTime'
   },
   {
     id: 3,
@@ -27,10 +27,10 @@ export const jobs = [
     company: 'DesignHub',
     location: 'Remote',
     salary: '$80k - $110k',
-    type: 'Full-time',
+    type: 'Part-Time',
     posted: '3d ago',
     logo: 'https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=128&h=128&fit=crop',
-    category: 'Design'
+    category: 'PartTime'
   },
   {
     id: 4,
@@ -38,10 +38,10 @@ export const jobs = [
     company: 'SalesForce',
     location: 'Chicago, IL',
     salary: '$60k - $80k',
-    type: 'Full-time',
+    type: 'Full-Time',
     posted: '4d ago',
     logo: 'https://images.unsplash.com/photo-1529119513315-c7c361862fc2?w=128&h=128&fit=crop',
-    category: 'Sales'
+    category: 'Female'
   },
   {
     id: 5,
@@ -52,6 +52,6 @@ export const jobs = [
     type: 'Full-time',
     posted: '1d ago',
     logo: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=128&h=128&fit=crop',
-    category: 'Finance'
+    category: 'Male'
   }
 ];

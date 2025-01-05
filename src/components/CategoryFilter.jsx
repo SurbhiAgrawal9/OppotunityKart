@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 
 const categories = [
   'All Jobs',
-  'Technology',
-  'Marketing',
-  'Design',
-  'Sales',
-  'Finance',
-  'Healthcare',
+  'FullTime',
+  'PartTime',
+  'Male',
+  'Female',
+ 
 ];
 
 export default function CategoryFilter({ onSelect }) {
