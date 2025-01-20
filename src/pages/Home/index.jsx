@@ -1,12 +1,10 @@
 import React from "react";
-import ReviewSection from "./ReviewSection";
-import Header from "./Header";
-import SearchBar from "./SearchBar";
-import CategoryFilter from "./CategoryFilter";
-import JobCard from "./JobCard";
-import InquiryForm from "./InquiryForm";
-import Footer from "./Footer";
-import { jobs } from "../data/jobs";
+import ReviewSection from "../../components/ReviewSection";
+import SearchBar from "../../components/SearchBar";
+import CategoryFilter from "../../components/CategoryFilter";
+import JobCard from "../../components/JobCard";
+import InquiryForm from "../../components/InquiryForm";
+import { jobs } from "../../data/jobs";
 
 function Home() {
   const [searchQuery, setSearchQuery] = React.useState("");
@@ -22,8 +20,7 @@ function Home() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-g-gray-50 to-white">
-      <Header />
+    <>
       <div className="bg-gradient-to-r from-g-blue via-g-purple to-g-blue animate-gradient py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -49,8 +46,7 @@ function Home() {
         <ReviewSection />
         <InquiryForm />
       </main>
-      <Footer />
-    </div>
+    </>
   );
 }
 
