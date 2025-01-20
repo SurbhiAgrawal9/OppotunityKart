@@ -8,6 +8,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <h3 className="text-white text-lg font-semibold mb-4">OppotunityKart</h3>
+            
             <p className="text-sm">Connecting talented professionals with their dream careers.</p>
             <div className="flex space-x-4 mt-4">
               <Facebook className="w-5 h-5 hover:text-blue-400 cursor-pointer" />
