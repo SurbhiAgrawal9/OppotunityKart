@@ -1,0 +1,12 @@
+.slick-dots {
+    display: flex !important;
+    justify-content: center;
+  }
+  
+  .slick-dots li {
+    display: none;
+  }
+  
+  .slick-dots li:nth-child(-n+3) {
+    display: inline-block;
+  }

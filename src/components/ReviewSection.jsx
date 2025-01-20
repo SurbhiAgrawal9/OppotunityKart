@@ -3,6 +3,7 @@ import Slider from 'react-slick';
 import { Star } from 'lucide-react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import './Review.css'
 
 const reviews = [
   {
@@ -84,20 +85,20 @@ export default function ReviewSection() {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow: 3,
     slidesToScroll: 1,
     responsive: [
       {
-        breakpoint: 768,
+        breakpoint: 1024,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1
         }
       },
       {
-        breakpoint: 1024,
+        breakpoint: 768,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 1,
           slidesToScroll: 1
         }
       }
@@ -108,8 +109,8 @@ export default function ReviewSection() {
     <section className="bg-gray-50 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">What Our Users Say</h2>
-          <p className="text-gray-600">Discover how OppotunityKart has helped professionals find their perfect roles</p>
+          <h2 className="text-3xl sm:text-2xl font-bold text-gray-900 mb-4">What Our Users Say</h2>
+          <p className="text-gray-600">Discover how OpportunityKart has helped professionals find their perfect roles</p>
         </div>
         <Slider {...settings}>
           {reviews.map((review) => (
@@ -118,7 +119,7 @@ export default function ReviewSection() {
                 <img
                   src={review.avatar}
                   alt={review.name}
-                  className="w-20 h-20 rounded-full mb-4"
+                  className="w-20 h-20 sm:w-16 sm:h-16 rounded-full mb-4"
                 />
                 <h4 className="font-semibold text-gray-900">{review.name}</h4>
                 <p className="text-sm text-gray-600 mb-4">{review.role} at {review.company}</p>
