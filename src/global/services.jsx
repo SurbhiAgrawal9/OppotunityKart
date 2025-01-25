@@ -3,7 +3,7 @@ import axios from "axios";
 import { errorHandler } from "./errorHandler";
 
 const axiosInstance = axios.create({
-  baseURL: "https://m1xxf5m1-5000.inc1.devtunnels.ms/api/",
+  baseURL: "https://careerhive-api.vercel.app/api/",
   // baseURL: "http://localhost:5000/api/",
   timeout: 5000,
   headers: {
