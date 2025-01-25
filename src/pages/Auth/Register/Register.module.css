@@ -1,0 +1,19 @@
+.main-container {
+  @apply w-full h-full flex items-center justify-center p-4 bg-gradient-to-r from-blue-500 via-purple-600 to-indigo-800;
+}
+
+.form-container {
+  @apply w-full max-w-4xl p-8 grid grid-cols-1 md:grid-cols-2 gap-6 bg-white bg-opacity-30 backdrop-blur-lg rounded-lg shadow-xl;
+}
+
+.button-container {
+  @apply flex items-center gap-4;
+}
+
+.reset-button {
+  @apply bg-red-500 hover:bg-red-700 text-white hover:scale-105 duration-300 active:scale-100 px-6 py-2 rounded-lg shadow-md;
+}
+
+.submit-button {
+  @apply bg-blue-500 hover:bg-blue-700 hover:scale-105 duration-300 active:scale-100 px-6 py-2 rounded-lg shadow-md text-white;
+}

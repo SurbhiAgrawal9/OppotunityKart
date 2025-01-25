@@ -1,55 +1,197 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Input from "../../../components/Input";
-import { get, post } from "../../../global/services";
-import { useAuth } from "../../../contexts/AuthContext";
+import Select from "../../../components/Select";
+import MultipleSelect from "../../../components/MultipleSelect";
+import { post } from "../../../global/services";
+import {
+  genderOptions,
+  experienceOptions,
+  skillOptions,
+} from "../../../global/global";
+import { ROUTES } from "../../../global/routes";
+import { Link, useNavigate } from "react-router-dom";
+import { Spin } from "antd";
+import style from "./Register.module.css";
 
 const index = () => {
   const {
     register,
     watch,
+    control,
     formState: { errors },
     handleSubmit,
   } = useForm();
 
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
   const submitHandler = async (data) => {
-    const response = await post("users/register", data);
-    console.log(response);
+    setLoading(true);
+    const [response, error] = await post("users/register", {
+      ...data,
+      role: "jobseeker",
+    });
+    setLoading(false);
+    if (!error) navigate(ROUTES.LOGIN);
   };
 
   return (
-    <div className="w-full h-full min-h-screen flex items-center justify-center p-4">
+    <div className={style["main-container"]}>
       <form
         onSubmit={handleSubmit(submitHandler)}
-        className="w-full h-full md:w-[80%] md:h-[80%] border shadow-md rounded-md grid grid-cols-1 md:grid-cols-2 gap-6 p-4"
+        className={style["form-container"]}
       >
-        <Input placeholder="Full Name" {...register("fullname")} />
-        <Input placeholder="Gender" {...register("gender")} />
-        <Input placeholder="Date Of Birth" {...register("birthDate")} />
-        <Input placeholder="Email" {...register("email")} />
-        <Input placeholder="Password" {...register("password")} />
-        <Input placeholder="Skills" {...register("skills")} />
-        <Input placeholder="Experience" {...register("experience")} />
-        <Input placeholder="Address" {...register("address")} />
-        <Input placeholder="Legal ID" {...register("legalId")} />
-        <Input placeholder="Primary Number" {...register("primaryNumber")} />
         <Input
-          placeholder="Alternative Number"
-          {...register("alternativeNumber")}
+          placeholder="Full Name"
+          {...register("fullname", {
+            required: "Full Name is required",
+            pattern: {
+              value: /^[A-Za-z\s]+$/,
+              message: "Full Name can only contain alphabets and spaces",
+            },
+          })}
+          error={errors.fullname}
         />
-        <Input placeholder="Qualification" {...register("qualification")} />
-        <button
-          type="reset"
-          className="bg-blue-500 px-3 py-1 rounded-lg text-white hover:bg-blue-700 hover:scale-105 duration-300 active:100 shadow-md h-12"
-        >
-          Reset
-        </button>
-        <button
-          type="submit"
-          className="bg-blue-500 hover:bg-blue-700 hover:scale-105 duration-300 active:100 px-3 py-1 rounded-lg shadow-md text-white h-12"
-        >
-          Submit
-        </button>
+
+        <Select
+          placeholder="Select your gender"
+          {...register("gender", { required: "Select your gender" })}
+          options={genderOptions}
+          error={errors.gender?.message}
+          style={{ height: "48px" }}
+        />
+
+        <Input
+          type="date"
+          placeholder="Date Of Birth"
+          {...register("birthDate", { required: "Date Of Birth is required" })}
+          error={errors.birthDate}
+        />
+
+        <Input
+          placeholder="Email"
+          {...register("email", {
+            required: "Email is required",
+            pattern: {
+              value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+              message: "Invalid email address",
+            },
+          })}
+          error={errors.email}
+        />
+
+        <Input
+          placeholder="Password"
+          type="password"
+          {...register("password", {
+            required: "Password is required",
+            minLength: {
+              value: 6,
+              message: "Password must be at least 6 characters long",
+            },
+          })}
+          error={errors.password}
+        />
+
+        <MultipleSelect
+          name="skills"
+          placeholder="Select your skills"
+          {...register("skills", {
+            required: "At least one skill is required",
+          })}
+          control={control}
+          options={skillOptions}
+          error={errors.skills}
+          style={{ height: "48px" }}
+        />
+
+        <Select
+          placeholder="Select your experience"
+          {...register("experience", { required: "Experience is required" })}
+          options={experienceOptions}
+          error={errors.experience?.message}
+        />
+
+        <Input
+          placeholder="Address"
+          {...register("address", { required: "Address is required" })}
+          error={errors.address}
+        />
+
+        <Input
+          placeholder="Legal ID"
+          {...register("legalId", { required: "Legal ID is required" })}
+          error={errors.legalId}
+        />
+
+        <Input
+          type="number"
+          placeholder="Primary Number"
+          {...register("primaryNumber", {
+            required: "Primary Number is required",
+            pattern: {
+              value: /^[0-9]{10}$/,
+              message: "Invalid phone number",
+            },
+          })}
+          error={errors.primaryNumber}
+        />
+
+        <Input
+          type="number"
+          placeholder="Alternative Number"
+          {...register("alternativeNumber", {
+            pattern: {
+              value: /^[0-9]{10}$/,
+              message: "Invalid phone number",
+            },
+          })}
+          error={errors.alternativeNumber}
+        />
+
+        <Input
+          placeholder="Qualification"
+          {...register("qualification", {
+            required: "Qualification is required",
+          })}
+          error={errors.qualification}
+        />
+
+        <div className={style["button-container"]}>
+          <button type="reset" className={style["reset-button"]}>
+            Reset
+          </button>
+          <button
+            type="submit"
+            className={`${style["submit-button"]} ${
+              loading && "opacity-50 cursor-not-allowed"
+            }`}
+            disabled={loading}
+          >
+            {loading ? <Spin /> : "Submit"}
+          </button>
+        </div>
+        <div className="col-span-3">
+          <div className="text-center">
+            <Link
+              to={ROUTES.FORGOT_PASSWORD}
+              className="text-blue-600 hover:underline"
+            >
+              Forgot your password?
+            </Link>
+          </div>
+
+          <div className="text-center mt-4">
+            <span>Already have an account? </span>
+            <Link
+              to={ROUTES.LOGIN}
+              className="text-blue-600 hover:underline"
+            >
+              Login here
+            </Link>
+          </div>
+        </div>
       </form>
     </div>
   );

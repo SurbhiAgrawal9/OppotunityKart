@@ -1,0 +1,19 @@
+.select-container {
+    @apply relative;
+}
+
+.select-wrapper {
+    @apply relative w-full;
+}
+
+.select {
+    @apply w-full border border-gray-300 rounded-lg focus:border-blue-600 focus:ring-0 text-gray-900 text-sm;
+}
+
+.select-error {
+    @apply border-red-500 focus:border-red-500;
+}
+
+.error {
+    @apply mt-1 text-red-500 text-sm;
+}
