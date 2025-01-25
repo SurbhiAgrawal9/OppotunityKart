@@ -20,13 +20,12 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
 
-  const login = (userData, msg) => {
+  const login = (userData) => {
     setUser(userData.user);
     setToken(userData.token);
     setIsAuthenticated(true);
     Cookies.set("user", JSON.stringify(userData.user), { expires: 7 });
     Cookies.set("token", JSON.stringify(userData.token), { expires: 7 });
-    message.success(msg);
   };
 
   const logout = () => {

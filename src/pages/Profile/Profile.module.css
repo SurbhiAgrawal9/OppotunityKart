@@ -1,0 +1,35 @@
+.main-container {
+  @apply bg-gradient-to-r from-indigo-500 via-purple-600 to-blue-700 min-h-screen flex flex-col items-center py-10;
+}
+
+.profilepage-container {
+  @apply w-full max-w-5xl bg-white p-8 rounded-xl shadow-xl bg-opacity-90;
+}
+
+.profile-header {
+  @apply flex items-center justify-between mb-8;
+}
+
+.avatar-container {
+  @apply flex items-center space-x-6;
+}
+
+.avatar-image {
+  @apply w-32 h-32 rounded-full object-cover border-4 border-gray-300;
+}
+
+.username {
+  @apply text-3xl font-bold text-gray-800 flex items-center gap-2;
+}
+
+.email {
+  @apply text-gray-600;
+}
+
+.resume-button {
+  @apply bg-blue-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-blue-700 transition duration-300;
+}
+
+.skills-container {
+    @apply mb-10 p-4 flex items-center gap-4;
+}

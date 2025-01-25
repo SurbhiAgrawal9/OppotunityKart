@@ -20,14 +20,10 @@ const Input = forwardRef(function index({
     <div className={styles["input-container"]}>
       <div className={styles["input-wrapper"]}>
         <input
-        ref={ref}
+          ref={ref}
           type={type === "password" && showPassword ? "text" : type}
           id={id}
           className={`${styles["input"]} peer`}
-          //   style={{
-          //     borderColor:
-          //       formik.touched[register] && formik.errors[register] ? "red" : "",
-          //   }}
           {...children}
         />
         <label htmlFor={id} className={styles["label"]}>
@@ -39,7 +35,7 @@ const Input = forwardRef(function index({
           </span>
         )}
       </div>
-      {error && <span className={styles["error"]}>{error}</span>}
+      {error && <span className={styles["error"]}>{error.message}</span>}
     </div>
   );
 });

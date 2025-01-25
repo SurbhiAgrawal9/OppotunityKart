@@ -1,9 +1,10 @@
 import { message } from "antd";
 import axios from "axios";
+import { errorHandler } from "./errorHandler";
 
 const axiosInstance = axios.create({
-  // baseURL: "https://careerhive-api.vercel.app/api/",
-  baseURL: "http://localhost:5000/api/",
+  baseURL: "https://m1xxf5m1-5000.inc1.devtunnels.ms/api/",
+  // baseURL: "http://localhost:5000/api/",
   timeout: 5000,
   headers: {
     "Content-Type": "application/json",
@@ -15,10 +16,11 @@ export const get = async (endpoint, token = null) => {
     const response = await axiosInstance.get(endpoint, {
       headers: { Authorization: `Bearer ${token}` },
     });
+    message.success(response.data?.message);
     return response;
   } catch (error) {
-    message.error(error.response?.data?.message || "An error occurred");
-    return error;
+    errorHandler(error);
+    return [error, true];
   }
 };
 
@@ -27,13 +29,13 @@ export const post = async (endpoint, data, token = null) => {
     const response = await axiosInstance.post(endpoint, data, {
       headers: { Authorization: `Bearer ${token}` },
     });
-    return response;
+    message.success(response.data?.message);
+    return [response, false];
   } catch (error) {
-    message.error(error.response?.data?.message || "An error occurred");
-    return error;
+    errorHandler(error);
+    return [error, true];
   }
 };
 
 export const put = async () => {};
-
 export const deleteApi = async () => {};
