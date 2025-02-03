@@ -24,7 +24,11 @@ const Login = () => {
     setLoading(false);
     login({ user: response.data.user, token: response.data.token });
     if (!error) {
+      if (response.data.user.role === "jobseeker") {
         navigate(ROUTES.PROFILE);
+      } else if(response.data.user.role === "admin") {
+        navigate(ROUTES.ADMIN_PANEL)
+      }
     }
   };
 
@@ -71,9 +75,8 @@ const Login = () => {
           </button>
           <button
             type="submit"
-            className={`bg-blue-500 hover:bg-blue-700 hover:scale-105 duration-300 active:100 px-6 py-2 rounded-lg shadow-md text-white ${
-              loading && "opacity-50 cursor-not-allowed"
-            }`}
+            className={`bg-blue-500 hover:bg-blue-700 hover:scale-105 duration-300 active:100 px-6 py-2 rounded-lg shadow-md text-white ${loading && "opacity-50 cursor-not-allowed"
+              }`}
             disabled={loading}
           >
             {loading ? <Spin /> : "Login"}

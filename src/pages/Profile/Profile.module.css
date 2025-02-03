@@ -15,7 +15,7 @@
 }
 
 .avatar-image {
-  @apply w-32 h-32 rounded-full object-cover border-4 border-gray-300;
+  @apply sm:w-10 h-10 lg:w-32 h-32 rounded-full object-cover border-4 border-gray-300;
 }
 
 .username {
@@ -27,9 +27,18 @@
 }
 
 .resume-button {
+  /* @apply bg-blue-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-blue-700 transition duration-300
+  sm:bg-pink-600 md:text-yellow-50 sm:text-xs sm:px-2 py-1 ; */
+
+  /* @apply px-6 py-2 sm:px-3 sm:py-1 sm:text-sm bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition duration-300; */
+
+  /* text black aur text white mai aage kuchh nhi lagate */
+  @apply sm:bg-pink-600 text-black sm:text-xs sm:px-2 sm:py-1;
   @apply bg-blue-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-blue-700 transition duration-300;
+  @apply md:text-yellow-50;
 }
 
 .skills-container {
     @apply mb-10 p-4 flex items-center gap-4;
 }
+

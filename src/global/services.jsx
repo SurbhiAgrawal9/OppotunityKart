@@ -3,8 +3,9 @@ import axios from "axios";
 import { errorHandler } from "./errorHandler";
 
 const axiosInstance = axios.create({
-  baseURL: "https://careerhive-api.vercel.app/api/",
-  // baseURL: "http://localhost:5000/api/",
+  // baseURL: "http://localhost:5000/api/", // local
+  baseURL: "https://m1xxf5m1-5000.inc1.devtunnels.ms/api/", // testing
+  // baseURL: "https://careerhive-api.vercel.app/api/", // dev
   timeout: 5000,
   headers: {
     "Content-Type": "application/json",
@@ -37,5 +38,5 @@ export const post = async (endpoint, data, token = null) => {
   }
 };
 
-export const put = async () => {};
-export const deleteApi = async () => {};
+export const put = async () => { };
+export const deleteApi = async () => { };

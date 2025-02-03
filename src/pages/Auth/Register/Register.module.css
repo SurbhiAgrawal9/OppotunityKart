@@ -1,9 +1,16 @@
 .main-container {
-  @apply w-full h-full flex items-center justify-center p-4 bg-gradient-to-r from-blue-500 via-purple-600 to-indigo-800;
+  @apply w-full h-full flex items-center justify-center p-4 bg-gradient-to-r from-blue-500 via-purple-600 to-indigo-800 ;
 }
 
+/* .form-container {
+  @apply w-full max-w-4xl p-8 grid grid-cols-1 sm:grid-cols-1 row-span-1 gap-6 bg-white bg-opacity-30 backdrop-blur-lg rounded-lg shadow-xl;
+ 
+} */
 .form-container {
-  @apply w-full max-w-4xl p-8 grid grid-cols-1 md:grid-cols-2 gap-6 bg-white bg-opacity-30 backdrop-blur-lg rounded-lg shadow-xl;
+  @apply w-full max-w-4xl p-8 flex flex-col gap-6 bg-white bg-opacity-30 backdrop-blur-lg rounded-lg shadow-xl;
+}
+.form-container input {
+  @apply h-12; /* Har input ka height fix karna */
 }
 
 .button-container {

@@ -16,7 +16,7 @@ export default function JobCard({ title, company, location, salary, type, posted
             <MapPin className="w-4 h-4 text-g-green" />
             <span className="text-g-gray-600">{location}</span>
           </div>
-          <div className="grid grid-cols-3 gap-4 mt-4">
+          <div className="lg:grid grid-cols-3 mt-4 ">
             <div className="flex items-center gap-1">
               <BriefcaseIcon className="w-4 h-4 text-g-blue" />
               <span className="text-sm text-g-gray-600">{type}</span>

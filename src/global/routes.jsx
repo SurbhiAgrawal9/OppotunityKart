@@ -6,5 +6,10 @@ export const ROUTES = {
     PROFILE: "/profile",
     JOBS: "/jobs",
     COMPANIES: "/companies",
-    SKILLS: "/skills"
+    SKILLS: "/skills",
+
+    // Admin Routes
+    ADMIN_PANEL: "/admin",
+    ADMIN_JOB_POSTINGS: "",
+    ADMIN_JOB_CREATE: "create-post",
 }

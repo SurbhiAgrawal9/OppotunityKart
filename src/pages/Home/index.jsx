@@ -22,12 +22,12 @@ function Home() {
   return (
     <>
       <div className="bg-gradient-to-r from-g-blue via-g-purple to-g-blue animate-gradient py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-5xl font-bold text-white mb-4">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-4">
               Find Your Dream Job Today
             </h2>
-            <p className="text-white/90 text-lg mb-8">
+            <p className="text-white/90 text-base sm:text-lg mb-8">
               Discover opportunities that match your skills and aspirations
             </p>
             <SearchBar onSearch={setSearchQuery} />
